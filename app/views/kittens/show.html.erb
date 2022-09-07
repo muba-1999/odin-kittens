@@ -1,8 +1,11 @@
-
+<p> Name: <strong><%= @kitten.name %></strong></p>
+<p>Age: <small><%= @kitten.age %></small></p>
+<p><small>Cuteness: <%= @kitten.cuteness %></small></p>
+<p><small>Softness: <%= @kitten.softness %></small></p>
 
 <div>
   <%= link_to "Edit", edit_kitten_path %> |
   <%= link_to "Back", kittens_path %>
 
-  <%= button_to "Destroy", @kitten, method: :delete %>
+  <%= button_to "Delete Kitten", @kitten, method: :delete %>
 </div>
