@@ -1,10 +1,20 @@
 class KittensController < ApplicationController
     def index
         @kitten = Kitten.all
+
+        respond_to do | format |
+            format.html
+            format.json {render :json => @kitten}
+        end
     end
 
     def show
-    
+        @kitten = Kitten.find(params[:id])
+
+        respond_to do | format |
+            format.html
+            format.json {render :json => @kitten}
+        end
     end
 
     def new
@@ -22,7 +32,7 @@ class KittensController < ApplicationController
     end
 
     def edit
-
+        @kitten = Kitten.find(params[:id])
     end
 
     def update
@@ -45,6 +55,7 @@ class KittensController < ApplicationController
         
     end
 
+    private
     def kitten_params
         params.require(:kitten).permit(:name, :age, :cuteness, :softness)
     end
